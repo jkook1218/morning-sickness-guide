@@ -11,197 +11,210 @@
 <body>
     <header class="header">
         <h1>입덧 관리 가이드</h1>
+        <button class="emergency-button" onclick="toggleEmergencyInfo()">
+            <i class="fas fa-exclamation-circle"></i> 긴급 상황 체크
+        </button>
     </header>
 
     <main class="container">
-        <!-- 긴급 상황 체크 -->
-        <section class="quick-access">
-            <div class="card emergency">
-                <h3><i class="fas fa-exclamation-circle"></i> 긴급 상황 체크</h3>
+        <!-- 긴급 상황 체크 - 숨겨진 모달 -->
+        <div id="emergencyModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="toggleEmergencyInfo()">&times;</span>
+                <h3>다음 증상이 있다면 병원 방문을 고려하세요</h3>
                 <ul>
                     <li>체중이 5% 이상 감소</li>
                     <li>24시간 이상 수분 섭취 불가</li>
                     <li>지속적인 구토와 탈수 증상</li>
                     <li>소변량 감소나 어두운 색 소변</li>
                     <li>심한 피로감과 무기력</li>
-                    <li>→ 즉시 병원 방문이 필요합니다</li>
                 </ul>
             </div>
-        </section>
-
-        <!-- 메인 페이지 -->
-        <div id="main" class="page active">
-            <section class="content-section">
-                <div class="card">
-                    <h2>입덧이란?</h2>
-                    <p>임신 초기의 입덧은 주로 호르몬 변화에 의해 발생하며, 임신부의 약 70-85%가 경험하는 자연스러운 현상입니다. 
-                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3676933/">[1]</a></p>
-                    
-                    <div class="info-box">
-                        <h3>주요 시기</h3>
-                        <ul>
-                            <li>시작: 임신 4~5주</li>
-                            <li>최고조: 11~13주</li>
-                            <li>완화: 14~16주</li>
-                            <li>종료: 대부분 22주 경</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
         </div>
 
-        <!-- 원인과 증상 페이지 -->
-        <div id="causes" class="page">
-            <section class="content-section">
-                <div class="card">
-                    <h2>호르몬 변화</h2>
-                    <p>임신 중에는 hCG, 에스트로겐, 프로게스테론 등의 호르몬이 급격히 증가합니다. 특히 hCG 호르몬은 임신 초기 4~8주 사이에 급격히 증가하며, 이 시기에 입덧 증상이 가장 심하게 나타납니다. 
-                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0002937803002191">[2]</a></p>
+        <div class="page-content">
+            <!-- 메인 페이지 -->
+            <div id="main" class="page active">
+                <section class="content-section">
+                    <div class="card">
+                        <h2>입덧이란?</h2>
+                        <p>임신 초기의 입덧은 주로 호르몬 변화에 의해 발생하며, 임신부의 약 70-85%가 경험하는 자연스러운 현상입니다. 
+                        <a href="https://blog.naver.com/mykbsmc2780/222535571329">[1]</a>
+                        <a href="http://www.samsunghospital.com/m/healthInfo/content/contenView.do?CONT_SRC_ID=32183&CONT_SRC=HOMEPAGE&CONT_ID=3823&CONT_CLS_CD=001021008001">[2]</a></p>
+                        
+                        <div class="info-box">
+                            <h3>일반적인 경과</h3>
+                            <ul>
+                                <li>시작: 임신 4~5주</li>
+                                <li>최고조: 11~13주</li>
+                                <li>완화: 14~16주</li>
+                                <li>종료: 대부분 22주 경</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
-                    <h3>GDF15 호르몬</h3>
-                    <p>최근 연구에 따르면 GDF15 호르몬이 입덧의 핵심 원인 중 하나로 지목되고 있습니다. GDF15는 염증과 관련된 단백질로, 임신 중 이 호르몬의 수치가 높아지면 입덧 증상이 심화될 수 있습니다. 
-                    <a href="https://www.nature.com/articles/nature25484">[3]</a></p>
-                </div>
+            <!-- 원인과 증상 페이지 -->
+            <div id="causes" class="page">
+                <section class="content-section">
+                    <div class="card">
+                        <h2>호르몬 변화</h2>
+                        <p>임신 중에는 hCG, 에스트로겐, 프로게스테론 등의 호르몬이 급격히 증가합니다. 특히 hCG 호르몬은 임신 초기 4~8주 사이에 급격히 증가하며, 이 시기에 입덧 증상이 가장 심하게 나타납니다. 이러한 호르몬 변화는 임신부의 신체적, 정신적 변화를 유발하여 입덧을 촉발합니다. 
+                        <a href="https://blog.naver.com/mykbsmc2780/222535571329">[1]</a>
+                        <a href="http://www.samsunghospital.com/m/healthInfo/content/contenView.do?CONT_SRC_ID=32183&CONT_SRC=HOMEPAGE&CONT_ID=3823&CONT_CLS_CD=001021008001">[2]</a></p>
 
-                <div class="card">
-                    <h2>심리적 요인</h2>
-                    <p>임신에 대한 불안감이나 스트레스는 입덧 증상을 악화시킬 수 있습니다. 계획되지 않은 임신이나 파트너의 무관심 등은 임신부의 정신적 스트레스를 증가시켜 입덧을 심화시킬 수 있습니다. 
-                    <a href="https://pubmed.ncbi.nlm.nih.gov/25884777/">[4]</a></p>
-                </div>
+                        <h2>심리적 요인</h2>
+                        <p>임신에 대한 불안감이나 스트레스는 입덧 증상을 악화시킬 수 있습니다. 계획되지 않은 임신이나 파트너의 무관심 등은 임신부의 정신적 스트레스를 증가시켜 입덧을 심화시킬 수 있습니다. 따라서 임신 기간 동안 최대한 마음을 편안하게 유지하는 것이 중요합니다. 
+                        <a href="https://blog.naver.com/chawomen/221419134597">[3]</a></p>
 
-                <div class="card">
-                    <h2>주요 증상</h2>
-                    <ul>
-                        <li>메스꺼움과 구토 (주로 아침에 심하지만, 하루 종일 지속될 수 있음)</li>
-                        <li>식욕 변화와 특정 음식/냄새에 대한 거부감</li>
-                        <li>피로감 증가</li>
-                        <li>체중 변화 가능성</li>
-                    </ul>
-                    <p>이러한 증상들은 임신부의 일상생활에 큰 영향을 미칠 수 있으며, 심한 경우 의료적 개입이 필요할 수 있습니다. 
-                    <a href="https://www.nejm.org/doi/full/10.1056/NEJMcp1003896">[5]</a></p>
-                </div>
-            </section>
-        </div>
+                        <h2>GDF15 호르몬</h2>
+                        <p>최근 연구에 따르면 GDF15 호르몬이 입덧의 핵심 원인 중 하나로 지목되고 있습니다. GDF15는 염증과 관련된 단백질로, 임신 중 이 호르몬의 수치가 높아지면 입덧 증상이 심화될 수 있습니다. 이 호르몬은 특히 임신 초기의 입덧 증상 이해에 중요한 역할을 합니다. 
+                        <a href="https://www.hani.co.kr/arti/science/science_general/1095486.html">[4]</a></p>
 
-        <!-- 대처 방법 페이지 -->
-        <div id="solutions" class="page">
-            <section class="content-section">
-                <div class="card">
-                    <h2>식이 요법</h2>
-                    <div class="content-box">
-                        <h3>추천 음식</h3>
-                        <ul>
-                            <li>생강차, 페퍼민트차</li>
-                            <li>레몬수</li>
-                            <li>바나나, 사과 등 신선한 과일</li>
-                            <li>건조한 크래커나 토스트</li>
-                            <li>요구르트, 두부</li>
-                            <li>매실, 모과</li>
-                            <li>토마토</li>
-                        </ul>
-                        <p>이러한 음식들은 입덧 증상 완화에 도움이 될 수 있습니다. 
-                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0266613800902695">[6]</a></p>
+                        <h2>주요 증상</h2>
+                        <p>입덧의 증상으로는 주로 구토와 메스꺼움이 있습니다. 이러한 증상은 주로 아침에 심하게 나타나지만, 하루 종일 지속될 수도 있습니다. 구토와 메스꺼움은 임신부의 일상 생활에 큰 영향을 미치며, 심한 경우에는 의료적 개입이 필요할 수 있습니다. 
+                        <a href="https://www.msdmanuals.com/ko/home/%EC%97%AC%EC%84%B1-%EA%B1%B4%EA%B0%95-%EB%AC%B8%EC%A0%9C/%EC%9E%84%EC%8B%A0-%ED%95%A9%EB%B3%91%EC%A6%9D/%EC%9E%84%EC%8B%A0-%EC%9E%85%EB%8D%A7">[5]</a></p>
+
+                        <p>또한, 입덧으로 인해 체중 감소와 피로가 발생할 수 있습니다. 입덧으로 인해 음식 섭취가 어려워지면 체중이 감소하고, 이로 인해 피로감이 증가할 수 있습니다. 이러한 증상은 임신부의 건강에 부정적인 영향을 미칠 수 있으므로, 적절한 영양 섭취와 휴식이 필요합니다. 
+                        <a href="https://blog.naver.com/schmcseoul/221846334631">[6]</a></p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 대처 방법 페이지 -->
+            <div id="solutions" class="page">
+                <section class="content-section">
+                    <div class="card">
+                        <h2>입덧 완화 방법</h2>
+                        <p>임신 초기의 입덧은 주로 호르몬 변화와 심리적 요인에 의해 발생합니다. 이는 임신부의 약 70-85%가 경험하는 증상으로, 일반적으로 임신 4~5주에 시작되어 11~13주에 가장 심해지며, 14~16주까지 지속되다가 22주 정도에 사라집니다. 입덧의 원인은 명확히 밝혀지지 않았으나, 심리적 성향, 호르몬 자극 등이 주요 원인으로 제시되고 있습니다. 
+                        <a href="https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5430">[7]</a>
+                        <a href="https://news.hidoc.co.kr/news/articleView.html?idxno=31894">[8]</a></p>
+
+                        <h3>식이 요법</h3>
+                        <p>의학적 연구에 따르면, 입덧 완화를 위해 다양한 방법이 제시되고 있습니다. 식이요법으로는 생강, 민트, 레몬 등이 효과적이며, 특히 생강은 소화를 돕고 메스꺼움을 완화하는 데 효과적입니다. 또한, 적절한 수면과 스트레스 관리가 중요하며, 이는 입덧 증상을 완화하는 데 도움이 됩니다. 
+                        <a href="https://news.hidoc.co.kr/news/articleView.html?idxno=31894">[8]</a>
+                        <a href="https://baby.namyangi.com/contents/view/4056/12290">[9]</a></p>
+
+                        <h3>생활 수칙</h3>
+                        <p>생활습관 개선을 통한 입덧 완화 방법으로는 충분한 휴식과 스트레스 관리가 중요합니다. 임신 중에는 피로감이 많이 느껴질 수 있으므로 충분히 자고, 지칠 때는 적극적으로 휴식을 취해야 합니다. 또한, 스트레스는 메스꺼움을 유발하는 원인 중 하나이므로, 요가나 명상 등을 통해 스트레스 해소에 도움을 주는 취미 생활을 즐기는 것이 좋습니다. 
+                        <a href="https://news.hidoc.co.kr/news/articleView.html?idxno=31894">[8]</a></p>
+
+                        <h3>대체 요법</h3>
+                        <p>대체요법으로는 한의학이나 아로마테라피, 지압 등이 있습니다. 특히, 손목 안쪽을 지압하는 것이 입덧 증세를 완화해준다는 연구 결과가 있습니다. 이러한 방법들은 임신부가 스스로 증상을 관리할 수 있는 방법으로, 전문의와의 상담을 통해 적절한 방법을 선택하는 것이 중요합니다. 
+                        <a href="https://news.hidoc.co.kr/news/articleView.html?idxno=19677">[10]</a></p>
+
+                        <h3>식이 요법 상세</h3>
+                        <div class="content-box">
+                            <p>의학적 연구에 따르면, 입덧 완화에 도움이 되는 식이요법으로는 따뜻한 물이나 페퍼민트 차, 바나나, 생강, 요구르트, 아이스크림과 스무디 등이 있습니다. 특히 생강은 전통적으로 입덧 완화에 효과적이라고 알려져 있습니다. 이러한 식품들은 입덧 증상을 완화하는 데 도움을 줄 수 있습니다. 
+                            <a href="https://doctornow.co.kr/content/magazine/5c03858b7fe14e2bac793ac17f72fb90">[11]</a></p>
+
+                            <p>임산부들의 경험에 따르면, 입덧 완화를 위해 물과 음식을 자주 소량으로 섭취하는 것이 중요합니다. 특히 건조하고 짭짤한 탄수화물 음식이 효과적이라고 합니다. 또한, 식사 전후로 위를 비우지 않도록 주의하는 것이 좋습니다. 
+                            <a href="https://m.blog.naver.com/mizmedi-w/222662890139">[12]</a></p>
+
+                            <p>입덧 완화에는 스트레스 관리도 중요합니다. 스트레스를 줄이기 위해 명상이나 요가와 같은 활동을 시도해 볼 수 있습니다. 이는 정신적 안정을 도모하고, 입덧 증상을 완화하는 데 기여할 수 있습니다. 
+                            <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=11050969&memberNo=541939">[17]</a>
+                            <a href="https://baby.namyangi.com/contents/view/3005/13256">[18]</a></p>
+
+                            <p>실제 임산부들의 경험담에 따르면, 입덧 완화를 위해서는 개인의 생활습관에 맞는 방법을 찾는 것이 중요합니다. 예를 들어, 어떤 임산부는 아침에 가벼운 스낵을 먹는 것이 도움이 되었다고 보고합니다. 
+                            <a href="https://m.blog.naver.com/mizmedi-w/222662890139">[12]</a>
+                            <a href="https://m.health.chosun.com/svc/news_view.html?contid=2021112301838">[19]</a></p>
+                        </div>
+
+                        <h3>생활 수칙 상세</h3>
+                        <div class="content-box">
+                            <p>입덧을 완화하기 위해서는 생활습관 개선이 중요합니다. 규칙적인 식사와 충분한 수면, 적절한 운동은 입덧 증상을 줄이는 데 도움이 됩니다. 특히, 아침에 가벼운 식사를 하고, 하루에 여러 번 소량의 음식을 섭취하는 것이 좋습니다. 
+                            <a href="https://m.blog.naver.com/mizmedi-w/222662890139">[12]</a>
+                            <a href="https://www.stcarollo.or.kr/0401/2264">[14]</a></p>
+
+                            <p>수면은 입덧 완화에 중요한 역할을 합니다. 규칙적인 수면 패턴을 유지하고, 낮잠을 1시간 이내로 제한하는 것이 좋습니다. 이는 신체적 피로를 줄이고, 정신적 안정을 유지하는 데 도움이 됩니다. 
+                            <a href="http://www.icord.com/artyboard/?act=bbs&subAct=view&bid=bbs_info&seq=14805">[15]</a>
+                            <a href="https://m.blog.naver.com/youngamii/221872728164">[16]</a></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 팁과 경험담 페이지 -->
+            <div id="tips" class="page">
+                <section class="content-section">
+                    <div class="card">
+                        <h2>실제 경험담</h2>
+                        <div class="content-box">
+                            <h3>일상생활 팁</h3>
+                            <ul>
+                                <li>아침에 일어나자마자 크래커 섭취하기</li>
+                                <li>물을 조금씩 자주 마시기</li>
+                                <li>식사 시간 규칙적으로 지키기</li>
+                                <li>신선한 공기 자주 마시기</li>
+                                <li>작은 간식을 항상 가지고 다니기</li>
+                                <li>향이 강한 장소 피하기</li>
+                            </ul>
+                            <p>이러한 방법들은 실제 임산부들의 경험을 바탕으로 수집되었습니다. 
+                            <a href="https://m.blog.naver.com/mizmedi-w/222662890139">[13]</a></p>
+                        </div>
+
+                        <div class="content-box">
+                            <h3>효과적인 방법들</h3>
+                            <ul>
+                                <li>생강차가 메스꺼움에 특히 도움됨</li>
+                                <li>차가운 음식이 입덧 완화에 효과적</li>
+                                <li>레몬이나 매실 음료가 도움됨</li>
+                                <li>아침 식사 전 마른 과자 섭취</li>
+                            </ul>
+                            <p>개인차가 있으므로, 자신에게 맞는 방법을 찾는 것이 중요합니다. 
+                            <a href="http://10000recipe.com/recipe/6844520">[14]</a></p>
+                        </div>
                     </div>
 
-                    <div class="content-box">
-                        <h3>섭취 방법</h3>
+                    <div class="card">
+                        <h2>준비물 체크리스트</h2>
                         <ul>
-                            <li>소량씩 자주 섭취하기</li>
-                            <li>천천히 꼭꼭 씹어 먹기</li>
-                            <li>아침에 마른 음식부터 시작하기</li>
-                            <li>식사 전후로 위를 비우지 않도록 주의</li>
-                            <li>찬 음식이 선호된다면 찬 음식 섭취</li>
+                            <li>휴대용 물병</li>
+                            <li>간단한 스낵 (크래커, 비스킷)</li>
+                            <li>레몬/생강 캔디</li>
+                            <li>구토용 봉투</li>
+                            <li>물티슈</li>
+                            <li>입 헹굼용 물</li>
+                            <li>여분의 옷</li>
                         </ul>
-                        <p>개인에 따라 선호하는 음식과 섭취 방법이 다를 수 있으므로, 자신에게 맞는 방법을 찾는 것이 중요합니다. 
-                        <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007575.pub2/">[7]</a></p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>생활 수칙</h2>
-                    <ul>
-                        <li>충분한 휴식과 수면 취하기</li>
-                        <li>규칙적인 수면 패턴 유지 (낮잠은 1시간 이내)</li>
-                        <li>스트레스 관리하기</li>
-                        <li>적절한 실내 온도 유지</li>
-                        <li>가벼운 운동 (산책)</li>
-                        <li>자극적인 냄새 피하기</li>
-                    </ul>
-                    <p>규칙적인 생활습관은 입덧 증상 관리에 매우 중요합니다. 
-                    <a href="https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2018/01/nausea-and-vomiting-of-pregnancy">[8]</a></p>
-                </div>
-
-                <div class="card">
-                    <h2>대체 요법</h2>
-                    <div class="content-box">
-                        <h3>한의학적 접근</h3>
-                        <p>한의학에서는 입덧의 원인을 소화 기능의 허약, 예민한 성격, 담음 축적 등으로 보고, 체질에 맞는 약재를 사용하여 치료합니다. 
-                        <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD003281.pub3/">[9]</a></p>
-
-                        <h3>지압 요법</h3>
-                        <p>손목 내관(P6) 지점 지압이 구역질과 구토 증상을 줄이는데 효과적입니다. 
-                        <a href="https://www.bmj.com/content/342/bmj.d3606">[10]</a></p>
-
-                        <h3>아로마테라피</h3>
-                        <ul>
-                            <li>진저 오일: 입덧 완화</li>
-                            <li>라벤더: 스트레스 감소</li>
-                            <li>로즈: 불안감 해소</li>
-                        </ul>
-                        <p class="warning">※ 에센셜 오일 사용 전 반드시 전문가와 상담하세요. 
-                        <a href="https://www.nejm.org/doi/full/10.1056/NEJMcp1003896">[11]</a></p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- 팁과 경험담 페이지 -->
-        <div id="tips" class="page">
-            <section class="content-section">
-                <div class="card">
-                    <h2>실제 경험담</h2>
-                    <div class="content-box">
-                        <h3>일상생활 팁</h3>
-                        <ul>
-                            <li>아침에 일어나자마자 크래커 섭취하기</li>
-                            <li>물을 조금씩 자주 마시기</li>
-                            <li>식사 시간 규칙적으로 지키기</li>
-                            <li>신선한 공기 자주 마시기</li>
-                            <li>작은 간식을 항상 가지고 다니기</li>
-                            <li>향이 강한 장소 피하기</li>
-                        </ul>
-                        <p>이러한 방법들은 실제 임산부들의 경험을 바탕으로 수집되었습니다. 
-                        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3676933/">[12]</a></p>
+                        <p>이러한 준비물들을 항상 가지고 다니면 갑작스러운 상황에 대처하기 좋습니다. 
+                        <a href="https://www.stcarollo.or.kr/0401/2264">[15]</a></p>
                     </div>
 
+                    <h3>대체 요법 상세</h3>
                     <div class="content-box">
-                        <h3>효과적인 방법들</h3>
-                        <ul>
-                            <li>생강차가 메스꺼움에 특히 도움됨</li>
-                            <li>차가운 음식이 입덧 완화에 효과적</li>
-                            <li>레몬이나 매실 음료가 도움됨</li>
-                            <li>아침 식사 전 마른 과자 섭취</li>
-                        </ul>
-                        <p>개인차가 있으므로, 자신에게 맞는 방법을 찾는 것이 중요합니다. 
-                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0002937803002191">[13]</a></p>
-                    </div>
-                </div>
+                        <p>대체요법으로는 한의학이 있습니다. 한의학에서는 입덧의 원인을 소화 기능의 허약, 예민한 성격, 담음 축적 등으로 보고, 이를 개선하기 위한 다양한 치료법을 제시합니다. 한방 치료는 체질에 맞는 약재를 사용하여 입덧 증상을 완화하는 데 도움을 줄 수 있습니다. 
+                        <a href="https://m.blog.naver.com/w-beauty/221311768127">[20]</a></p>
 
-                <div class="card">
-                    <h2>준비물 체크리스트</h2>
-                    <ul>
-                        <li>휴대용 물병</li>
-                        <li>간단한 스낵 (크래커, 비스킷)</li>
-                        <li>레몬/생강 캔디</li>
-                        <li>구토용 봉투</li>
-                        <li>물티슈</li>
-                        <li>입 헹굼용 물</li>
-                        <li>여분의 옷</li>
-                    </ul>
-                    <p>이러한 준비물들을 항상 가지고 다니면 갑작스러운 상황에 대처하기 좋습니다. 
-                    <a href="https://pubmed.ncbi.nlm.nih.gov/25884777/">[14]</a></p>
-                </div>
-            </section>
+                        <p>아로마테라피는 스트레스와 불안감을 줄이는 데 효과적입니다. 진저 오일은 입덧 완화에 효과적이며, 라벤더와 로즈 오일은 스트레스 완화에 도움을 줍니다. 그러나 모든 에센셜 오일이 임산부에게 안전한 것은 아니므로 사용 전 전문가의 조언을 구하는 것이 중요합니다. 
+                        <a href="http://hairface.wjgarosu.com/sisagw/45991">[21]</a></p>
+
+                        <p>지압은 입덧 완화에 효과적인 방법 중 하나입니다. 손목의 내관(P6) 지점을 지압하면 구역질과 구토 증상을 줄일 수 있습니다. 이는 임신 초기의 불편함을 줄이는 데 유용하며, 간단히 집에서 시도할 수 있는 방법입니다. 
+                        <a href="https://m.omdi.co.kr/mobile/adminis/safe">[22]</a></p>
+                    </div>
+
+                    <h3>의료적 개입이 필요한 경우</h3>
+                    <div class="content-box">
+                        <p>심각한 입덧, 특히 임신과다구토는 지속적인 구토와 체중 감소를 동반하는 증상으로, 임신부의 건강에 심각한 영향을 미칠 수 있습니다. 이러한 상태는 일반적인 입덧과는 달리 지속적이며, 체중의 5% 이상 감소와 같은 심각한 체중 감소를 초래할 수 있습니다. 이러한 증상은 임신 초기부터 발생할 수 있으며, 적절한 관리가 이루어지지 않으면 임신부와 태아의 건강에 위험을 초래할 수 있습니다. 
+                        <a href="https://juninini.com/entry/%EC%9E%84%EC%8B%A0-%EC%A4%91-%EC%9E%85%EB%8D%A7%EC%9D%98-%EC%A2%85%EB%A5%98-%EB%A8%B9%EB%8D%A7-%EC%9E%85%EB%8D%A7%EC%95%BD-%EC%B2%98%EB%B0%A9">[23]</a>
+                        <a href="https://nikom.or.kr/nckm/module/practiceGuide/view.do?guide_idx=324">[24]</a></p>
+
+                        <p>임신과다구토의 발생률은 전체 임신의 0.3~3%로 알려져 있습니다. 이는 비교적 드문 상태이지만, 발생 시 임신부의 건강에 심각한 영향을 미칠 수 있습니다. 따라서, 이러한 상태가 의심될 경우, 조기에 진단하고 적절한 치료를 받는 것이 중요합니다. 
+                        <a href="https://news.hidoc.co.kr/news/articleView.html?idxno=33417">[25]</a></p>
+
+                        <p>임신 초기의 입덧은 많은 임산부들이 겪는 자연스러운 현상입니다. 주로 임신 4주부터 시작되며, HCG 호르몬의 증가가 주요 원인으로 알려져 있습니다. 이로 인해 메스꺼움, 구토, 입맛 변화 등의 증상이 나타나며, 일부 임산부는 이러한 증상이 임신 12주까지 지속되기도 합니다. 
+                        <a href="http://chamc.co.kr/media/magazineOld_detail.cha?num=267&page=7535">[26]</a>
+                        <a href="https://ljeblog.co.kr/%EC%9E%85%EB%8D%A7-%EA%B7%B9%EB%B3%B5-%ED%8C%81%EA%B3%BC-%EB%B0%A9%EB%B2%95/">[27]</a></p>
+
+                        <p>실제 임산부들의 경험담에 따르면, 입덧을 극복하기 위해 다양한 방법을 시도했다고 합니다. 예를 들어, 생강차를 마시거나 소량의 음식을 자주 섭취하는 방법이 효과적이었다는 후기가 많습니다. 이러한 경험담은 다른 임산부들에게 실용적인 팁을 제공할 수 있습니다. 
+                        <a href="http://m.blog.naver.com/logmomlove/220655283193">[28]</a>
+                        <a href="https://baby.namyangi.com/contents/view/3005/14632">[29]</a>
+                        <a href="https://post.naver.com/viewer/postView.nhn?volumeNo=10040111&memberNo=679116">[30]</a>
+                        <a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1007463243">[31]</a></p>
+                    </div>
+                </section>
+            </div>
         </div>
     </main>
 

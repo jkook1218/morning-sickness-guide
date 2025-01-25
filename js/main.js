@@ -75,3 +75,31 @@ window.addEventListener('popstate', (event) => {
         showPage(event.state.page);
     }
 });
+
+function toggleEmergencyInfo() {
+    const modal = document.getElementById('emergencyModal');
+    if (modal.style.display === 'block') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    } else {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// ESC 키로 모달 닫기
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('emergencyModal');
+        if (modal.style.display === 'block') {
+            toggleEmergencyInfo();
+        }
+    }
+});
+
+// 모달 외부 클릭시 닫기
+document.getElementById('emergencyModal').addEventListener('click', function(event) {
+    if (event.target === this) {
+        toggleEmergencyInfo();
+    }
+});
