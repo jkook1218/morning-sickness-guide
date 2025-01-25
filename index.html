@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임신 중 입덧 관리 가이드</title>
+    <!-- Font Awesome 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 우리가 만든 CSS 파일 연결 -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #ff97b7;
+            --secondary-color: #ffd6e4;
+            --text-color: #4a4a4a;
+            --transition-time: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        .nav-menu {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            text-align: center;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .nav-item i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 60px); /* 하단 네비게이션 높이만큼 뺌 */
+            padding: 20px;
+            transform: translateX(100%);
+            transition: transform var(--transition-time) ease-in-out;
+            overflow-y: auto;
+            background: #fff;
+        }
+
+        .page.active {
+            transform: translateX(0);
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .content-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 네비게이션 -->
+    <header class="header">
+        <h1>입덧 관리 가이드</h1>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="container">
+        <!-- 퀵 액세스 카드 -->
+        <section class="quick-access">
+            <div class="card emergency">
+                <h3><i class="fas fa-exclamation-circle"></i> 긴급 상황 체크</h3>
+                <ul>
+                    <li>체중이 5% 이상 감소</li>
+                    <li>지속적인 구토와 탈수</li>
+                    <li>24시간 이상 수분 섭취 불가</li>
+                    <li>→ 즉시 병원 방문 필요</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 주요 섹션들 -->
+        <div id="main" class="page active">
+            <section class="content-section">
+                <h2>입덧이란?</h2>
+                <div class="content-card">
+                    <p>임신 초기의 자연스러운 현상으로, 주로 4~8주 사이에 시작되어 16주 정도까지 지속됩니다.</p>
+                    <div class="info-box">
+                        <h4>주요 시기</h4>
+                        <ul>
+                            <li>시작: 임신 4~5주</li>
+                            <li>최고조: 11~13주</li>
+                            <li>완화: 14~16주</li>
+                            <li>종료: 대부분 22주 경</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- 추가 섹션들 계속... -->
+        </div>
+    </main>
+
+    <!-- 하단 네비게이션 -->
+    <nav class="nav-menu">
+        <div class="nav-item" onclick="showPage('main')">
+            <i class="fas fa-home"></i>
+            <span>홈</span>
+        </div>
+        <div class="nav-item" onclick="showPage('causes')">
+            <i class="fas fa-info-circle"></i>
+            <span>원인</span>
+        </div>
+        <div class="nav-item" onclick="showPage('solutions')">
+            <i class="fas fa-lightbulb"></i>
+            <span>대처법</span>
+        </div>
+        <div class="nav-item" onclick="showPage('tips')">
+            <i class="fas fa-star"></i>
+            <span>팁</span>
+        </div>
+    </nav>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="js/main.js"></script>
+</body>
+</html>
