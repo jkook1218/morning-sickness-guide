@@ -92,25 +92,25 @@
 
     <!-- 메인 컨텐츠 영역 -->
     <main class="container">
-        <!-- 퀵 액세스 카드 -->
+        <!-- 긴급 상황 체크 -->
         <section class="quick-access">
             <div class="card emergency">
                 <h3><i class="fas fa-exclamation-circle"></i> 긴급 상황 체크</h3>
                 <ul>
                     <li>체중이 5% 이상 감소</li>
-                    <li>지속적인 구토와 탈수</li>
                     <li>24시간 이상 수분 섭취 불가</li>
-                    <li>→ 즉시 병원 방문 필요</li>
+                    <li>지속적인 구토와 탈수 증상</li>
+                    <li>소변량 감소나 어두운 색 소변</li>
+                    <li>→ 즉시 병원 방문이 필요합니다</li>
                 </ul>
             </div>
         </section>
 
-        <!-- 주요 섹션들 -->
+        <!-- 메인 페이지 -->
         <div id="main" class="page active">
             <section class="content-section">
-                <h2>입덧이란?</h2>
+                <h2>입덧 개요</h2>
                 <div class="content-card">
-                    <p>임신 초기의 자연스러운 현상으로, 주로 4~8주 사이에 시작되어 16주 정도까지 지속됩니다.</p>
                     <div class="info-box">
                         <h4>주요 시기</h4>
                         <ul>
@@ -120,9 +120,135 @@
                             <li>종료: 대부분 22주 경</li>
                         </ul>
                     </div>
+                    <p>임신부의 약 70-85%가 경험하는 자연스러운 현상입니다.</p>
                 </div>
             </section>
-            <!-- 추가 섹션들 계속... -->
+        </div>
+
+        <!-- 원인과 증상 페이지 -->
+        <div id="causes" class="page">
+            <section class="content-section">
+                <h2>주요 원인</h2>
+                <div class="content-card">
+                    <h3>호르몬 변화</h3>
+                    <ul>
+                        <li>hCG 호르몬 급증 (4~8주)</li>
+                        <li>에스트로겐 증가</li>
+                        <li>프로게스테론 변화</li>
+                        <li>GDF15 호르몬 영향</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>심리적 요인</h3>
+                    <ul>
+                        <li>임신에 대한 불안감</li>
+                        <li>스트레스</li>
+                        <li>환경적 변화</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>주요 증상</h2>
+                <div class="content-card">
+                    <ul>
+                        <li>메스꺼움과 구토</li>
+                        <li>식욕 변화</li>
+                        <li>특정 음식/냄새 거부감</li>
+                        <li>피로감</li>
+                        <li>체중 변화</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- 대처 방법 페이지 -->
+        <div id="solutions" class="page">
+            <section class="content-section">
+                <h2>식이 요법</h2>
+                <div class="content-card">
+                    <h3>추천 음식</h3>
+                    <ul>
+                        <li>생강차, 페퍼민트차</li>
+                        <li>레몬수</li>
+                        <li>바나나, 사과</li>
+                        <li>건조한 크래커</li>
+                        <li>요구르트</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>섭취 방법</h3>
+                    <ul>
+                        <li>소량씩 자주 섭취</li>
+                        <li>천천히 섭취</li>
+                        <li>찬 음식 선호 시 찬 음식 섭취</li>
+                        <li>아침에 마른 음식부터 시작</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>생활 수칙</h2>
+                <div class="content-card">
+                    <ul>
+                        <li>충분한 휴식과 수면</li>
+                        <li>스트레스 관리</li>
+                        <li>적절한 실내 온도 유지</li>
+                        <li>가벼운 운동 (산책)</li>
+                        <li>자극적인 냄새 피하기</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>대체 요법</h2>
+                <div class="content-card">
+                    <ul>
+                        <li>손목 지압 (P6 지점)</li>
+                        <li>아로마테라피 (진저, 레몬)</li>
+                        <li>가벼운 요가</li>
+                        <li>명상</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- 팁과 경험담 페이지 -->
+        <div id="tips" class="page">
+            <section class="content-section">
+                <h2>실제 경험담</h2>
+                <div class="content-card tip-card">
+                    <h3>일상생활 팁</h3>
+                    <ul>
+                        <li>아침에 일어나자마자 크래커 섭취</li>
+                        <li>물을 조금씩 자주 마시기</li>
+                        <li>식사 시간 규칙적으로 지키기</li>
+                        <li>신선한 공기 자주 마시기</li>
+                    </ul>
+                </div>
+                <div class="content-card tip-card">
+                    <h3>효과적인 방법들</h3>
+                    <ul>
+                        <li>생강차가 메스꺼움에 도움</li>
+                        <li>차가운 음식이 입덧 완화에 효과적</li>
+                        <li>작은 간식을 항상 가지고 다니기</li>
+                        <li>향이 강한 장소 피하기</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>준비물 체크리스트</h2>
+                <div class="content-card">
+                    <ul>
+                        <li>휴대용 물병</li>
+                        <li>간단한 스낵 (크래커 등)</li>
+                        <li>레몬/생강 캔디</li>
+                        <li>구토용 봉투</li>
+                        <li>물티슈</li>
+                    </ul>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -146,7 +272,6 @@
         </div>
     </nav>
 
-    <!-- JavaScript 파일 연결 -->
     <script src="js/main.js"></script>
 </body>
 </html>
