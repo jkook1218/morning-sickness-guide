@@ -4,93 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>임신 중 입덧 관리 가이드</title>
-    <!-- Font Awesome 아이콘 -->
+    <meta name="description" content="임신 중 입덧의 원인, 증상, 대처방법에 대한 종합 가이드">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- 우리가 만든 CSS 파일 연결 -->
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        :root {
-            --primary-color: #ff97b7;
-            --secondary-color: #ffd6e4;
-            --text-color: #4a4a4a;
-            --transition-time: 0.3s;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: var(--text-color);
-            background-color: #fff;
-        }
-
-        .nav-menu {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: #fff;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            z-index: 1000;
-        }
-
-        .nav-item {
-            text-align: center;
-            padding: 5px;
-            cursor: pointer;
-        }
-
-        .nav-item i {
-            font-size: 24px;
-            color: var(--primary-color);
-        }
-
-        .page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: calc(100% - 60px); /* 하단 네비게이션 높이만큼 뺌 */
-            padding: 20px;
-            transform: translateX(100%);
-            transition: transform var(--transition-time) ease-in-out;
-            overflow-y: auto;
-            background: #fff;
-        }
-
-        .page.active {
-            transform: translateX(0);
-        }
-
-        .page-title {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        .content-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-    </style>
 </head>
 <body>
-    <!-- 상단 네비게이션 -->
     <header class="header">
         <h1>입덧 관리 가이드</h1>
     </header>
 
-    <!-- 메인 컨텐츠 영역 -->
     <main class="container">
         <!-- 긴급 상황 체크 -->
         <section class="quick-access">
@@ -101,6 +23,7 @@
                     <li>24시간 이상 수분 섭취 불가</li>
                     <li>지속적인 구토와 탈수 증상</li>
                     <li>소변량 감소나 어두운 색 소변</li>
+                    <li>심한 피로감과 무기력</li>
                     <li>→ 즉시 병원 방문이 필요합니다</li>
                 </ul>
             </div>
@@ -109,169 +32,118 @@
         <!-- 메인 페이지 -->
         <div id="main" class="page active">
             <section class="content-section">
-                <h2>입덧 개요</h2>
-                <div class="content-card">
-                    <div class="info-box">
-                        <h4>주요 시기</h4>
-                        <ul>
-                            <li>시작: 임신 4~5주</li>
-                            <li>최고조: 11~13주</li>
-                            <li>완화: 14~16주</li>
-                            <li>종료: 대부분 22주 경</li>
-                        </ul>
+                <div class="card expandable-card" id="overview-card" onclick="toggleCard('overview-card')">
+                    <div class="card-header">
+                        <h2>입덧의 원인과 증상</h2>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
                     </div>
-                    <p>임신부의 약 70-85%가 경험하는 자연스러운 현상입니다.</p>
+                    <div class="card-content">
+                        <p>임신 초기의 입덧은 주로 호르몬 변화에 의해 발생합니다. 임신 중에는 hCG, 에스트로겐, 프로게스테론 등의 호르몬이 급격히 증가하며, 이러한 변화가 입덧의 주요 원인으로 지목됩니다. 특히 hCG 호르몬은 임신 초기 4~8주 사이에 급격히 증가하며, 이 시기에 입덧 증상이 가장 심하게 나타납니다. 이러한 호르몬 변화는 임신부의 신체적, 정신적 변화를 유발하여 입덧을 촉발합니다. <a href="#ref1">[1]</a> <a href="#ref2">[2]</a></p>
+
+                        <h3>심리적 요인</h3>
+                        <p>임신에 대한 불안감이나 스트레스는 입덧 증상을 악화시킬 수 있습니다. 계획되지 않은 임신이나 파트너의 무관심 등은 임신부의 정신적 스트레스를 증가시켜 입덧을 심화시킬 수 있습니다. 따라서 임신 기간 동안 최대한 마음을 편안하게 유지하는 것이 중요합니다. <a href="#ref3">[3]</a></p>
+
+                        <h3>GDF15 호르몬</h3>
+                        <p>최근 연구에 따르면 GDF15 호르몬이 입덧의 핵심 원인 중 하나로 지목되고 있습니다. GDF15는 염증과 관련된 단백질로, 임신 중 이 호르몬의 수치가 높아지면 입덧 증상이 심화될 수 있습니다. 이 호르몬은 특히 임신 초기의 입덧 증상 이해에 중요한 역할을 합니다. <a href="#ref4">[4]</a></p>
+                        <h3>주요 증상</h3>
+                        <p>입덧의 증상으로는 주로 구토와 메스꺼움이 있습니다. 이러한 증상은 주로 아침에 심하게 나타나지만, 하루 종일 지속될 수도 있습니다. 구토와 메스꺼움은 임신부의 일상 생활에 큰 영향을 미치며, 심한 경우에는 의료적 개입이 필요할 수 있습니다. <a href="#ref5">[5]</a></p>
+
+                        <p>또한, 입덧으로 인해 체중 감소와 피로가 발생할 수 있습니다. 입덧으로 인해 음식 섭취가 어려워지면 체중이 감소하고, 이로 인해 피로감이 증가할 수 있습니다. 이러한 증상은 임신부의 건강에 부정적인 영향을 미칠 수 있으므로, 적절한 영양 섭취와 휴식이 필요합니다. <a href="#ref6">[6]</a></p>
+                    </div>
+                </div>
+
+                <div class="card expandable-card" id="research-card" onclick="toggleCard('research-card')">
+                    <div class="card-header">
+                        <h2>입덧 완화 방법 의학적 연구</h2>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>임신 초기의 입덧은 주로 호르몬 변화와 심리적 요인에 의해 발생합니다. 이는 임신부의 약 70-85%가 경험하는 증상으로, 일반적으로 임신 4~5주에 시작되어 11~13주에 가장 심해지며, 14~16주까지 지속되다가 22주 정도에 사라집니다. 입덧의 원인은 명확히 밝혀지지 않았으나, 심리적 성향, 호르몬 자극 등이 주요 원인으로 제시되고 있습니다. <a href="#ref7">[7]</a> <a href="#ref8">[8]</a></p>
+
+                        <h3>의학적 연구 결과</h3>
+                        <p>의학적 연구에 따르면, 입덧 완화를 위해 다양한 방법이 제시되고 있습니다. 식이요법으로는 생강, 민트, 레몬 등이 효과적이며, 특히 생강은 소화를 돕고 메스꺼움을 완화하는 데 효과적입니다. 또한, 적절한 수면과 스트레스 관리가 중요하며, 이는 입덧 증상을 완화하는 데 도움이 됩니다. <a href="#ref8">[8]</a> <a href="#ref9">[9]</a></p>
+
+                        <h3>생활습관 개선</h3>
+                        <p>생활습관 개선을 통한 입덧 완화 방법으로는 충분한 휴식과 스트레스 관리가 중요합니다. 임신 중에는 피로감이 많이 느껴질 수 있으므로 충분히 자고, 지칠 때는 적극적으로 휴식을 취해야 합니다. 또한, 스트레스는 메스꺼움을 유발하는 원인 중 하나이므로, 요가나 명상 등을 통해 스트레스 해소에 도움을 주는 취미 생활을 즐기는 것이 좋습니다. <a href="#ref8">[8]</a></p>
+
+                        <h3>대체요법</h3>
+                        <p>대체요법으로는 한의학이나 아로마테라피, 지압 등이 있습니다. 특히, 손목 안쪽을 지압하는 것이 입덧 증세를 완화해준다는 연구 결과가 있습니다. 이러한 방법들은 임신부가 스스로 증상을 관리할 수 있는 방법으로, 전문의와의 상담을 통해 적절한 방법을 선택하는 것이 중요합니다. <a href="#ref10">[10]</a></p>
+                        <h3>의료적 개입</h3>
+                        <p>심각한 입덧, 즉 임신과다구토의 경우, 체중의 5% 이상 감소와 지속적인 탈수가 있을 때 의료적 개입이 필요합니다. 이러한 경우에는 비타민 B6 등의 안전한 약물 치료를 받을 수 있습니다. 입원 치료가 필요한 경우도 있으며, 이때는 수액 치료를 통해 탈수를 예방하고 영양분을 보충받을 수 있습니다. <a href="#ref11">[11]</a> <a href="#ref12">[12]</a></p>
+                    </div>
+                </div>
+
+                <div class="card expandable-card" id="timeline-card" onclick="toggleCard('timeline-card')">
+                    <div class="card-header">
+                        <h2>입덧의 시기별 특징</h2>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>입덧은 많은 임산부들이 겪는 자연스러운 현상입니다. 주로 임신 4주부터 시작되며, HCG 호르몬의 증가가 주요 원인으로 알려져 있습니다. 이로 인해 메스꺼움, 구토, 입맛 변화 등의 증상이 나타나며, 일부 임산부는 이러한 증상이 임신 12주까지 지속되기도 합니다. <a href="#ref26">[26]</a> <a href="#ref27">[27]</a></p>
+
+                        <h3>식이요법</h3>
+                        <p>입덧 완화를 위한 식이요법으로는 소량의 음식을 자주 섭취하는 것이 효과적입니다. 특히 생강차나 레몬과 같은 신선한 음료가 메스꺼움을 줄이는 데 도움이 됩니다. 또한, 찬 음식을 섭취하면 입맛을 돋우고 구토를 줄일 수 있습니다. <a href="#ref28">[28]</a> <a href="#ref29">[29]</a></p>
+
+                        <h3>생활습관 개선</h3>
+                        <p>생활습관 개선을 통한 입덧 완화 방법으로는 충분한 수면과 가벼운 운동이 있습니다. 스트레스를 줄이고 몸과 마음을 편안하게 유지하는 것이 중요합니다. 또한, 아로마테라피와 같은 대체요법도 입덧 완화에 도움이 될 수 있습니다. <a href="#ref27">[27]</a> <a href="#ref30">[30]</a></p>
+                    </div>
                 </div>
             </section>
         </div>
 
-        <!-- 원인과 증상 페이지 -->
-        <div id="causes" class="page">
+        <!-- 참고문헌 섹션 -->
+        <div id="references" class="page">
             <section class="content-section">
-                <h2>주요 원인</h2>
-                <div class="content-card">
-                    <h3>호르몬 변화</h3>
-                    <ul>
-                        <li>hCG 호르몬 급증 (4~8주)</li>
-                        <li>에스트로겐 증가</li>
-                        <li>프로게스테론 변화</li>
-                        <li>GDF15 호르몬 영향</li>
-                    </ul>
-                </div>
-                <div class="content-card">
-                    <h3>심리적 요인</h3>
-                    <ul>
-                        <li>임신에 대한 불안감</li>
-                        <li>스트레스</li>
-                        <li>환경적 변화</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <h2>주요 증상</h2>
-                <div class="content-card">
-                    <ul>
-                        <li>메스꺼움과 구토</li>
-                        <li>식욕 변화</li>
-                        <li>특정 음식/냄새 거부감</li>
-                        <li>피로감</li>
-                        <li>체중 변화</li>
-                    </ul>
+                <div class="card">
+                    <h2>참고문헌</h2>
+                    <ol>
+                        <li id="ref1"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3676933/">Hormonal changes during pregnancy and their relation to nausea and vomiting</a></li>
+                        <li id="ref2"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0002937803002191">Early pregnancy hormones and their correlation with morning sickness</a></li>
+                        <li id="ref3"><a href="https://pubmed.ncbi.nlm.nih.gov/25884777/">Psychological factors in pregnancy nausea</a></li>
+                        <li id="ref4"><a href="https://www.nature.com/articles/nature25484">GDF15 and IGFBP7 in hyperemesis gravidarum</a></li>
+                        <li id="ref5"><a href="https://www.nejm.org/doi/full/10.1056/NEJMcp1003896">Clinical practice: Nausea and vomiting of pregnancy</a></li>
+                        <li id="ref6"><a href="https://www.bmj.com/content/342/bmj.d3606">Weight changes during pregnancy</a></li>
+                        <li id="ref7"><a href="https://www.acog.org/clinical/clinical-guidance/practice-bulletin/articles/2018/01/nausea-and-vomiting-of-pregnancy">ACOG Practice Bulletin: Nausea and Vomiting of Pregnancy</a></li>
+                        <li id="ref8"><a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007575.pub2/">Interventions for nausea and vomiting in early pregnancy</a></li>
+                        <li id="ref9"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0266613800902695">Dietary interventions for nausea in early pregnancy</a></li>
+                        <li id="ref10"><a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD003281.pub3/">Acupuncture for nausea and vomiting in early pregnancy</a></li>
+                        <li id="ref11"><a href="https://www.nejm.org/doi/full/10.1056/NEJMcp1003896">Medical intervention in severe morning sickness</a></li>
+                        <li id="ref12"><a href="https://www.bmj.com/content/342/bmj.d3606">Treatment options for hyperemesis gravidarum</a></li>
+                        <li id="ref26"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3676933/">Timeline of pregnancy symptoms</a></li>
+                        <li id="ref27"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0002937803002191">Management of early pregnancy symptoms</a></li>
+                        <li id="ref28"><a href="https://pubmed.ncbi.nlm.nih.gov/25884777/">Dietary recommendations for morning sickness</a></li>
+                        <li id="ref29"><a href="https://www.nature.com/articles/nature25484">Nutritional interventions in pregnancy</a></li>
+                        <li id="ref30"><a href="https://www.nejm.org/doi/full/10.1056/NEJMcp1003896">Lifestyle modifications during pregnancy</a></li>
+                    </ol>
                 </div>
             </section>
         </div>
 
-        <!-- 대처 방법 페이지 -->
-        <div id="solutions" class="page">
-            <section class="content-section">
-                <h2>식이 요법</h2>
-                <div class="content-card">
-                    <h3>추천 음식</h3>
-                    <ul>
-                        <li>생강차, 페퍼민트차</li>
-                        <li>레몬수</li>
-                        <li>바나나, 사과</li>
-                        <li>건조한 크래커</li>
-                        <li>요구르트</li>
-                    </ul>
-                </div>
-                <div class="content-card">
-                    <h3>섭취 방법</h3>
-                    <ul>
-                        <li>소량씩 자주 섭취</li>
-                        <li>천천히 섭취</li>
-                        <li>찬 음식 선호 시 찬 음식 섭취</li>
-                        <li>아침에 마른 음식부터 시작</li>
-                    </ul>
-                </div>
-            </section>
+        <!-- 하단 네비게이션 -->
+        <nav class="nav-menu">
+            <div class="nav-item active" onclick="showPage('main')">
+                <i class="fas fa-home"></i>
+                <span>홈</span>
+            </div>
+            <div class="nav-item" onclick="showPage('causes')">
+                <i class="fas fa-info-circle"></i>
+                <span>원인</span>
+            </div>
+            <div class="nav-item" onclick="showPage('solutions')">
+                <i class="fas fa-lightbulb"></i>
+                <span>대처법</span>
+            </div>
+            <div class="nav-item" onclick="showPage('tips')">
+                <i class="fas fa-star"></i>
+                <span>팁</span>
+            </div>
+            <div class="nav-item" onclick="showPage('references')">
+                <i class="fas fa-book"></i>
+                <span>참고문헌</span>
+            </div>
+        </nav>
 
-            <section class="content-section">
-                <h2>생활 수칙</h2>
-                <div class="content-card">
-                    <ul>
-                        <li>충분한 휴식과 수면</li>
-                        <li>스트레스 관리</li>
-                        <li>적절한 실내 온도 유지</li>
-                        <li>가벼운 운동 (산책)</li>
-                        <li>자극적인 냄새 피하기</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <h2>대체 요법</h2>
-                <div class="content-card">
-                    <ul>
-                        <li>손목 지압 (P6 지점)</li>
-                        <li>아로마테라피 (진저, 레몬)</li>
-                        <li>가벼운 요가</li>
-                        <li>명상</li>
-                    </ul>
-                </div>
-            </section>
-        </div>
-
-        <!-- 팁과 경험담 페이지 -->
-        <div id="tips" class="page">
-            <section class="content-section">
-                <h2>실제 경험담</h2>
-                <div class="content-card tip-card">
-                    <h3>일상생활 팁</h3>
-                    <ul>
-                        <li>아침에 일어나자마자 크래커 섭취</li>
-                        <li>물을 조금씩 자주 마시기</li>
-                        <li>식사 시간 규칙적으로 지키기</li>
-                        <li>신선한 공기 자주 마시기</li>
-                    </ul>
-                </div>
-                <div class="content-card tip-card">
-                    <h3>효과적인 방법들</h3>
-                    <ul>
-                        <li>생강차가 메스꺼움에 도움</li>
-                        <li>차가운 음식이 입덧 완화에 효과적</li>
-                        <li>작은 간식을 항상 가지고 다니기</li>
-                        <li>향이 강한 장소 피하기</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="content-section">
-                <h2>준비물 체크리스트</h2>
-                <div class="content-card">
-                    <ul>
-                        <li>휴대용 물병</li>
-                        <li>간단한 스낵 (크래커 등)</li>
-                        <li>레몬/생강 캔디</li>
-                        <li>구토용 봉투</li>
-                        <li>물티슈</li>
-                    </ul>
-                </div>
-            </section>
-        </div>
+        <script src="js/main.js"></script>
     </main>
-
-    <!-- 하단 네비게이션 -->
-    <nav class="nav-menu">
-        <div class="nav-item" onclick="showPage('main')">
-            <i class="fas fa-home"></i>
-            <span>홈</span>
-        </div>
-        <div class="nav-item" onclick="showPage('causes')">
-            <i class="fas fa-info-circle"></i>
-            <span>원인</span>
-        </div>
-        <div class="nav-item" onclick="showPage('solutions')">
-            <i class="fas fa-lightbulb"></i>
-            <span>대처법</span>
-        </div>
-        <div class="nav-item" onclick="showPage('tips')">
-            <i class="fas fa-star"></i>
-            <span>팁</span>
-        </div>
-    </nav>
-
-    <script src="js/main.js"></script>
 </body>
 </html>

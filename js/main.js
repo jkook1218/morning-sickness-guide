@@ -1,38 +1,47 @@
-// 페이지 전환 함수
+// 페이지 전환 관리
 function showPage(pageId) {
-    // 현재 활성화된 페이지 찾기
     const currentPage = document.querySelector('.page.active');
-    
-    // 새로 보여줄 페이지
     const newPage = document.getElementById(pageId);
     
-    // 현재 페이지가 있다면 active 클래스 제거
     if (currentPage) {
         currentPage.classList.remove('active');
     }
     
-    // 새 페이지에 active 클래스 추가
     if (newPage) {
         newPage.classList.add('active');
-        // 페이지 상단으로 스크롤
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 네비게이션 메뉴 아이템 상태 업데이트
+    // 네비게이션 상태 업데이트
     updateNavigation(pageId);
 }
 
 // 네비게이션 상태 업데이트
 function updateNavigation(pageId) {
-    // 모든 네비게이션 아이템에서 active 클래스 제거
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
     });
     
-    // 현재 페이지에 해당하는 네비게이션 아이템에 active 클래스 추가
     const activeNav = document.querySelector(`.nav-item[onclick*="${pageId}"]`);
     if (activeNav) {
         activeNav.classList.add('active');
+    }
+}
+
+// 카드 확장 기능
+function toggleCard(cardId) {
+    const card = document.getElementById(cardId);
+    const content = card.querySelector('.card-content');
+    const icon = card.querySelector('.toggle-icon');
+    
+    if (content.classList.contains('expanded')) {
+        content.classList.remove('expanded');
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+    } else {
+        content.classList.add('expanded');
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
     }
 }
 
@@ -40,4 +49,29 @@ function updateNavigation(pageId) {
 document.addEventListener('DOMContentLoaded', () => {
     // 기본 페이지 표시
     showPage('main');
+    
+    // 모든 확장 가능한 카드 초기화
+    document.querySelectorAll('.expandable-card').forEach(card => {
+        const content = card.querySelector('.card-content');
+        if (content) {
+            content.style.maxHeight = '0px';
+        }
+    });
+
+    // 스크롤 시 헤더 그림자 효과
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 0) {
+            header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+        } else {
+            header.style.boxShadow = 'none';
+        }
+    });
+});
+
+// 뒤로가기 지원
+window.addEventListener('popstate', (event) => {
+    if (event.state && event.state.page) {
+        showPage(event.state.page);
+    }
 });

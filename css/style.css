@@ -1,10 +1,13 @@
 :root {
     --primary-color: #ff97b7;
-    --secondary-color: #ffd6e4;
-    --text-color: #4a4a4a;
+    --primary-light: #ffd6e4;
+    --primary-dark: #ff6b8b;
+    --background-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #636e72;
     --danger-color: #ff6b6b;
     --success-color: #51cf66;
-    --background-color: #fff;
     --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
     --transition-time: 0.3s;
 }
@@ -13,91 +16,98 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: var(--text-color);
+    color: var(--text-primary);
     background-color: var(--background-color);
     line-height: 1.6;
 }
 
+/* Header Styles */
 .header {
-    background: var(--primary-color);
-    color: white;
+    background: var(--surface-color);
+    color: var(--primary-color);
     padding: 1rem;
     text-align: center;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Container Styles */
 .container {
     margin-top: 60px;
     margin-bottom: 70px;
     padding: 1rem;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.quick-access {
-    margin-bottom: 2rem;
-}
-
+/* Card Styles */
 .card {
-    background: white;
-    border-radius: 12px;
-    padding: 1rem;
+    background: var(--surface-color);
+    border-radius: 16px;
+    padding: 1.5rem;
     margin-bottom: 1rem;
     box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease;
 }
 
+.card:active {
+    transform: scale(0.98);
+}
+
+.expandable-card {
+    overflow: hidden;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.card-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.card-content.expanded {
+    max-height: 2000px;
+    transition: max-height 0.5s ease-in;
+}
+
+/* Emergency Card */
 .emergency {
-    border-left: 4px solid var(--danger-color);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+    color: white;
 }
 
 .emergency h3 {
-    color: var(--danger-color);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: white;
 }
 
-.content-section {
-    margin-bottom: 2rem;
-}
-
-.content-section h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.info-box {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-top: 1rem;
-}
-
-.info-box h4 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-ul {
-    list-style-position: inside;
-    padding-left: 1rem;
-}
-
-li {
-    margin-bottom: 0.5rem;
-}
-
+/* Navigation */
 .nav-menu {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: white;
+    background: var(--surface-color);
     display: flex;
     justify-content: space-around;
     padding: 0.7rem 0;
@@ -111,37 +121,66 @@ li {
     align-items: center;
     gap: 0.3rem;
     cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
 }
 
-.nav-item i {
-    font-size: 1.5rem;
+.nav-item.active {
     color: var(--primary-color);
 }
 
-.nav-item span {
-    font-size: 0.8rem;
+/* Typography */
+h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 
 .page {
     display: none;
-    opacity: 0;
-    transition: opacity var(--transition-time) ease-in-out;
+    animation: slideIn 0.3s ease-out;
 }
 
 .page.active {
     display: block;
-    opacity: 1;
 }
 
 .tip-card {
     border-left: 4px solid var(--success-color);
     margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width: 768px;
-        margin-left: auto;
-        margin-right: auto;
-    }
 }
